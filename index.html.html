@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ИНФА ОТ ЛЕГЕНДЫ</title>
+    <style>
+           body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .menu-icon {
+            font-size: 20px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .home-icon {
+            font-size: 20px;
+            margin-left: 10px;
+        }
+        .search-container {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+        }
+        .search-input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .search-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .search-results {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <!-- Ваш заголовок -->
+    <div class="header">
+        <div class="menu-icon">☰</div>
+        <div class="logo">ИНФА ОТ ЛЕГЕНДЫ</div>
+        <div class="home-icon">⌂</div>
+		   </div>
+<!-- Поле для ввода текста -->
+    <div class="search-container">
+        <input type="text" class="search-input" placeholder="Введите текст..." oninput="searchDefinitions(this.value)">
+        <button class="search-button">🔍</button>
+    </div>
+
+    <!-- Место для вывода результатов поиска -->
+    <div class="search-results" id="searchResults">
+        <!-- Здесь будет отображаться результат поиска -->
+    </div>
+
+    <!-- JavaScript для поиска определений -->
+    <script>
+        function searchDefinitions(query) {
+            const definitions = {
+                "Река": "это природный водный поток...",
+                "Режим реки": "изменение уровня воды по сезонам...",
+                // Добавьте остальные определения сюда
+                // Например:
+                // "Межень": "период низкой водности рек..."
+            };
+
+        const searchResults = document.getElementById("searchResults");
+            searchResults.innerHTML = "";
+
+            for (const term in definitions) {
+                if (term.toLowerCase().includes(query.toLowerCase())) {
+                    const definition = definitions[term];
+                    const resultItem = document.createElement("div");
+                    resultItem.textContent = `${term}: ${definition}`;
+                    searchResults.appendChild(resultItem);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
