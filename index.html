@@ -55,6 +55,13 @@
             padding: 20px;
             background-color: #f9f9f9;
         }
+		 .search-results {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            display: none; /* Скрываем элемент по умолчанию */
+		}
+
     </style>
 </head>
 <body>
@@ -86,16 +93,21 @@
                 // "Межень": "период низкой водности рек..."
             };
 
-        const searchResults = document.getElementById("searchResults");
+             const searchResults = document.getElementById("searchResults");
             searchResults.innerHTML = "";
 
-            for (const term in definitions) {
-                if (term.toLowerCase().includes(query.toLowerCase())) {
-                    const definition = definitions[term];
-                    const resultItem = document.createElement("div");
-                    resultItem.textContent = `${term}: ${definition}`;
-                    searchResults.appendChild(resultItem);
+            if (query.trim() !== "") {
+                for (const term in definitions) {
+                    if (term.toLowerCase().includes(query.toLowerCase())) {
+                        const definition = definitions[term];
+                        const resultItem = document.createElement("div");
+                        resultItem.textContent = `${term}: ${definition}`;
+                        searchResults.appendChild(resultItem);
+                    }
                 }
+                searchResults.style.display = "block"; /* Показываем элемент, если есть результаты */
+            } else {
+                searchResults.style.display = "none"; /* Скрываем элемент, если поле ввода пустое */
             }
         }
     </script>
