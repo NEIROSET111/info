@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ИНФА ОТ ЛЕГЕНДЫ</title>
     <style>
-           body {
-            font-family: Arial, sans-serif;
+            body {
+           font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
         }
@@ -40,6 +40,7 @@
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            max-width: 100%; /* Адаптивная ширина поля ввода */
         }
         .search-button {
             background-color: #007bff;
@@ -51,11 +52,6 @@
             cursor: pointer;
         }
         .search-results {
-            margin-top: 20px;
-            padding: 20px;
-            background-color: #f9f9f9;
-        }
-		 .search-results {
             margin-top: 20px;
             padding: 20px;
             background-color: #f9f9f9;
@@ -74,7 +70,7 @@
 <!-- Поле для ввода текста -->
     <div class="search-container">
         <input type="text" class="search-input" placeholder="Введите текст..." oninput="searchDefinitions(this.value)">
-        <button class="search-button">🔍</button>
+ 
     </div>
 
     <!-- Место для вывода результатов поиска -->
